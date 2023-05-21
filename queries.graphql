@@ -1,0 +1,40 @@
+mutation CreateRestaurant {
+  setrestaurant(input:{
+    name: "McDonald's",
+    description: "Fast Food",
+  
+  }) {
+    name
+    description
+  }
+
+}
+
+
+mutation DeleteRestaurant($id: Int!) {
+  deleterestaurant(id: $id) {
+    ok
+  }
+}
+
+
+
+mutation EditRestaurant($id: Int!, $restaurant: String!) {
+  editrestaurant(id: $id, name: $restaurant) {
+    id
+    name
+    description
+  }
+}
+
+
+query GetAllRestaurants {
+  restaurants {
+    name
+  }
+}
+query GetRestaurant($id: Int) {
+  restaurant(id: $id) {
+    name
+  }
+}
